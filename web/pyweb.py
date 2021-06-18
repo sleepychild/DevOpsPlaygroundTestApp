@@ -27,7 +27,7 @@ from twisted.internet import reactor, endpoints
 class index(Resource):
     isLeaf = True
     def render_GET(self, request):
-        response_data = f'<p>Welcome from {platform.node()}</p>'
+        response_data = f'<p>Welcome from {platform.node()} !!!</p>'
         cur.execute("SELECT somedata FROM sometable;")
         result = cur.fetchall()
         for res in result:
