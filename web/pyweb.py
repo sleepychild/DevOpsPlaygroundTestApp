@@ -28,10 +28,14 @@ class index(Resource):
     isLeaf = True
     def render_GET(self, request):
         response_data = f'<p>Welcome from {platform.node()} !!!</p>'
-        cur.execute("SELECT somedata FROM sometable;")
-        result = cur.fetchall()
-        for res in result:
-            response_data += f'<p>{res[0]}</p>' 
+        try:
+            cur.execute("SELECT somedata FROM sometable;")
+            result = cur.fetchall()
+        except:
+            response_data += f'<p>Database is unstable</p>' 
+        else:
+            for res in result:
+                response_data += f'<p>{res[0]}</p>' 
         return response_data.encode()
 
 root = Resource()
