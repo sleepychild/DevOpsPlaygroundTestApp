@@ -19,7 +19,7 @@ services:
         deploy:
             replicas: 3
         ports:
-            - 8080:3000
+            - 9000:3000
         networks:
             - local_net
         depends_on: 
