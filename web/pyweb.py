@@ -31,8 +31,8 @@ class index(Resource):
         try:
             cur.execute("SELECT somedata FROM sometable;")
             result = cur.fetchall()
-        except:
-            response_data += f'<p>Database is unstable</p>' 
+        except Exception as e:
+            response_data += f'<p>Database error:</p><p>{e}</p>' 
         else:
             for res in result:
                 response_data += f'<p>{res[0]}</p>' 
