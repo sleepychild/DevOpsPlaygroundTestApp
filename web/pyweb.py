@@ -35,7 +35,8 @@ class index(Resource):
             response_data += f'<p>Database error:</p><p>{e}</p>' 
         else:
             for res in result:
-                response_data += f'<p>{res[0]}</p>' 
+                response_data += f'<p>{res[0]}</p>'
+        response_data += '<script>setTimeout(()=>{location.reload()},30000)</script>'
         return response_data.encode()
 
 root = Resource()
